@@ -1,68 +1,47 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        nuxt-web
-      </h1>
-      <h2 class="subtitle">
-        my first nuxt web
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
-    </div>
-  </section>
+  <el-container>
+    <el-row>
+      <el-menu :default-active="activeIndex2"
+               @select="handleSelect"
+               active-text-color="#ffd04b" background-color="#545c64" class="el-menu-demo" mode="horizontal" text-color="#fff">
+        <el-menu-item index="1">首页</el-menu-item>
+        <el-menu-item index="3">测试</el-menu-item>
+      </el-menu>
+    </el-row>
+    <el-main>
+      <Logo></Logo>
+    </el-main>
+    <el-footer>Footer</el-footer>
+  </el-container>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+  import Logo from '~/components/Logo.vue'
 
-export default {
-  components: {
-    Logo
+  export default {
+    components: {
+      Logo
+    },
+    data() {
+      return {
+        activeIndex: '1',
+        activeIndex2: '1'
+      };
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
   }
-}
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  .el-header, .el-footer {
+    text-align: center;
+  }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+  .el-main {
+    text-align: center;
+  }
 </style>
