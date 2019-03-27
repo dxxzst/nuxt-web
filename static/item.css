@@ -1,0 +1,12 @@
+.country-icon {
+  display: inline-flex;
+  float: left;
+  border-radius: 42px;
+  width: 42px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-right: 2em;
+  background-color: #fafafa;
+}
